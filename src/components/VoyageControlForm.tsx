@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
-import { Button } from "./Button"
-import { InputField } from "./InputField"
+import { InputField } from "./ui/InputField"
+import { Button } from "./ui/Button"
 
 const StyledControlForm = styled.form({
   marginTop: "40px",

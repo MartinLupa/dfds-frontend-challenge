@@ -1,6 +1,6 @@
 import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
-import { Pointer } from "./Pointer"
+import { Pointer } from "./ui/Pointer"
 
 const movePointer = keyframes`
     50% {
