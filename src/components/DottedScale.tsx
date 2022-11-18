@@ -4,7 +4,7 @@ import { SmallDot } from "./SmallDot"
 
 const StyledDottedScale = styled.div({
   height: "50px",
-  margin: "0 3px",
+  padding: "0 3px",
   display: "flex",
   alignItems: "center",
   justifyContent: "space-around",

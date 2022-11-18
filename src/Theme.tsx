@@ -11,6 +11,8 @@ export const theme = {
     //Grey scales:
     darkGrey: "#666666",
     lightGrey: "#CCCCCC",
+
+    white: "#FFFFFF",
   },
   fonts: {
     main: "'Montserrat', sans-serif",

@@ -5,7 +5,6 @@ import { Main } from "./pages/Main"
 import { theme } from "./Theme"
 
 const StyledApp = styled.div({
-  fontFamily: theme.fonts.main,
   fontSize: theme.fontSize.md,
   height: "100vh",
   width: "100vw",
@@ -31,6 +30,7 @@ function App() {
       <Global
         styles={{
           body: {
+            fontFamily: `${theme.fonts.main} !important`,
             margin: 0,
             padding: 0,
           },
