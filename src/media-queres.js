@@ -1,5 +1,6 @@
 const bp = {
   small: 500,
+  medium: 720,
   large: 1200,
 }
 
