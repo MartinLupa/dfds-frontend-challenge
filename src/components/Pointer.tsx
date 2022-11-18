@@ -21,17 +21,6 @@ const StyledCenterCircle = styled.div({
   zIndex: 3,
 })
 
-// const StyledWaterLine = styled.div({
-//   height: "18px",
-//   width: "36px",
-//   transform: "rotate(-45deg)",
-//   margin: "20px 0 0 11px",
-//   borderRadius: "0 0 80px 80px",
-//   zIndex: 2,
-
-//   backgroundColor: theme.colors.lightBlue,
-// })
-
 export const Pointer = () => {
   return (
     <StyledPointer>
