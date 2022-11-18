@@ -20,12 +20,12 @@ export const VoyageControlForm = () => {
   return (
     <StyledControlForm>
       <StyledFormGroup>
-        <InputField />
-        <InputField />
+        <InputField labelName={"Departure port"} type={"text"} />
+        <InputField labelName={"Arrival port"} type={"text"} />
       </StyledFormGroup>
       <StyledFormGroup>
-        <InputField />
-        <InputField />
+        <InputField labelName={"Departure time"} type={"time"} />
+        <InputField labelName={"Arrival time"} type={"time"} />
       </StyledFormGroup>
       <Button />
     </StyledControlForm>
