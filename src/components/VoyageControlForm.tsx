@@ -3,6 +3,7 @@ import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
 
 const StyledControlForm = styled.form({
+  padding: "27px",
   marginTop: "40px",
   display: "flex",
   flexDirection: "column",

@@ -4,7 +4,7 @@ import { theme } from "../../themes"
 const StyledButton = styled.button({
   width: "228px",
   height: "35px",
-  margin: "10px",
+  marginTop: "10px",
   backgroundColor: theme.colors.darkBlue,
   color: theme.colors.white,
   fontSize: theme.fontSize.md,

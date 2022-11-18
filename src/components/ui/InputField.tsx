@@ -3,11 +3,14 @@ import styled from "@emotion/styled"
 const StyledInput = styled.div({
   display: "flex",
   flexDirection: "column",
-  marginLeft: "10px",
+
+  label: {
+    marginTop: "5px",
+  },
 
   input: {
     height: "25px",
-    width: "220px",
+    width: "auto",
   },
 })
 
