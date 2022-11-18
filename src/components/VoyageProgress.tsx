@@ -1,3 +1,10 @@
+import styled from "@emotion/styled"
+
+const StyledVoyageProgress = styled.div({
+  height: "100vh",
+  width: "100%",
+})
+
 export const VoyageProgress = () => {
-  return <div>VoyageProgress</div>
+  return <StyledVoyageProgress>VoyageProgress</StyledVoyageProgress>
 }
