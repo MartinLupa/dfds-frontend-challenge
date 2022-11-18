@@ -4,7 +4,6 @@ import { PointerContainer } from "./PointerContainer"
 import { VoyageControlForm } from "./VoyageControlForm"
 
 const StyledVoyageProgress = styled.div({
-  height: "300px",
   width: "500px",
 })
 

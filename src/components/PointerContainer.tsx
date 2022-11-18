@@ -1,21 +1,13 @@
-import { keyframes } from "@emotion/react"
+// import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
 import { Pointer } from "./ui/Pointer"
 
-const movePointer = keyframes`
-    50% {
-      transform: translateX(0px)
-    }
-    100% {
-      transform: translateX(450px)
-    }
-  `
-
 const StylePointerContainer = styled.div({
   height: "65px",
+  padding: "0 12px",
   display: "flex",
   alignItems: "center",
-  animation: `${movePointer} 3s linear forwards`,
+  overflow: "hidden",
 })
 
 export const PointerContainer = () => {
