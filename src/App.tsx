@@ -1,8 +1,9 @@
 import { Global } from "@emotion/react"
 import styled from "@emotion/styled"
 import DFDSLogo from "./assets/DFDS_Logo.png"
+import { mq } from "./media-queres"
 import { Main } from "./pages/Main"
-import { theme } from "./Theme"
+import { theme } from "./themes"
 
 const StyledApp = styled.div({
   fontSize: theme.fontSize.md,
@@ -11,14 +12,19 @@ const StyledApp = styled.div({
 })
 
 const StyledNav = styled.nav({
+  fontSize: theme.fontSize.sm,
   display: "flex",
   alignItems: "center",
   borderBottom: `1px solid ${theme.colors.lightGrey}`,
   boxShadow: `${theme.colors.lightGrey} 0 1.95px 2.6px`,
+
+  [mq("medium")]: {
+    fontSize: theme.fontSize.md,
+  },
 })
 
 const StyledLogo = styled.img({
-  height: "80px",
+  height: "40px",
   width: "auto",
   paddingLeft: "5px",
   marginRight: "20px",

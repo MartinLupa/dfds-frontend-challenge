@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { theme } from "../../Theme"
+import { theme } from "../../themes"
 
 const StyledBigDot = styled.div({
   height: "20px",

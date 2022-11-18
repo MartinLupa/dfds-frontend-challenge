@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
-import { InputField } from "./ui/InputField"
 import { Button } from "./ui/Button"
+import { InputField } from "./ui/InputField"
 
 const StyledControlForm = styled.form({
   marginTop: "40px",
@@ -10,6 +10,7 @@ const StyledControlForm = styled.form({
 
 const StyledFormGroup = styled.div({
   display: "flex",
+  flexDirection: "column",
   marginBottom: "10px",
   justifyContent: "space-between",
 })
