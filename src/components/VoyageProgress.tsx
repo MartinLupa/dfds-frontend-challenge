@@ -1,16 +1,26 @@
+import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
-import { Pointer } from "./Pointer"
+import { PointerContainer } from "./PointerContainer"
+
+const movePointer = keyframes`
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 100;    
+    }
+  `
 
 const StyledVoyageProgress = styled.div({
   height: "300px",
   width: "500px",
-  border: "1px solid black",
+  animation: ` ${movePointer} 1s ease infinite`,
 })
 
 export const VoyageProgress = () => {
   return (
     <StyledVoyageProgress>
-      <Pointer />
+      <PointerContainer />
     </StyledVoyageProgress>
   )
 }
