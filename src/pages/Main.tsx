@@ -1,7 +1,8 @@
 import styled from "@emotion/styled"
 import { VoyageProgress } from "../components/VoyageProgress"
 
-const StyledMain = styled.div({
+const StyledMain = styled.main({
+  height: "90%",
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

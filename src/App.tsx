@@ -15,11 +15,13 @@ const StyledNav = styled.nav({
   display: "flex",
   alignItems: "center",
   borderBottom: `1px solid ${theme.colors.lightGrey}`,
+  boxShadow: `${theme.colors.lightGrey} 0 1.95px 2.6px`,
 })
 
 const StyledLogo = styled.img({
   height: "80px",
   width: "auto",
+  paddingLeft: "5px",
   marginRight: "20px",
 })
 
