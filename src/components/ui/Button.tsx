@@ -17,5 +17,5 @@ const StyledButton = styled.button({
 })
 
 export const Button = () => {
-  return <StyledButton>Start Journey!</StyledButton>
+  return <StyledButton type="submit">Start Journey!</StyledButton>
 }

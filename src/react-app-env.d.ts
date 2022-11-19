@@ -2,6 +2,8 @@
 /// <reference types="@emotion/react/types/css-prop" />
 
 type TextInputProps = {
-  labelName: string
+  label: string
+  name: string
   type: string
+  onChange: React.ChangeEventHandler<HTMLInputElement>
 }

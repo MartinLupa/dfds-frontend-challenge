@@ -14,11 +14,11 @@ const StyledInput = styled.div({
   },
 })
 
-export const InputField = ({ labelName, type }: TextInputProps) => {
+export const InputField = ({ label, name, type, onChange }: TextInputProps) => {
   return (
     <StyledInput>
-      <label htmlFor={labelName}>{labelName}</label>
-      <input type={type} id={labelName} name={labelName} />
+      <label htmlFor={name}>{label}</label>
+      <input onChange={onChange} type={type} id={name} name={name} />
     </StyledInput>
   )
 }
