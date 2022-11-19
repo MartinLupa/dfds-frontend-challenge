@@ -7,3 +7,12 @@ type TextInputProps = {
   type: string
   onChange: React.ChangeEventHandler<HTMLInputElement>
 }
+
+type VoyageState = {
+  voyage: {
+    departurePort: string
+    arrivalPort: string
+    departureTime: string
+    arrivalTime: string
+  }
+}

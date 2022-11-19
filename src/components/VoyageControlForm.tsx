@@ -1,5 +1,7 @@
 import styled from "@emotion/styled"
 import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { update } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
 
@@ -26,6 +28,7 @@ const initialState = {
 
 export const VoyageControlForm = () => {
   const [voyageInformation, setVoyageInformation] = useState(initialState)
+  const dispatch = useDispatch()
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = event.target.id
@@ -35,9 +38,11 @@ export const VoyageControlForm = () => {
 
   const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    setVoyageInformation(initialState)
-    console.log(voyageInformation)
+    dispatch(update(voyageInformation))
+    //setVoyageInformation(initialState)
+    //console.log(voyageInformation)
   }
+
   return (
     <StyledControlForm onSubmit={handleFormSubmision}>
       <StyledFormGroup>
