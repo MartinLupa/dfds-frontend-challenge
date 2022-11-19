@@ -17,13 +17,15 @@ const StyledFormGroup = styled.div({
   justifyContent: "space-between",
 })
 
+const initialState = {
+  departurePort: "",
+  arrivalPort: "",
+  departureTime: "",
+  arrivalTime: "",
+}
+
 export const VoyageControlForm = () => {
-  const [voyageInformation, setVoyageInformation] = useState({
-    departurePort: "",
-    arrivalPort: "",
-    departureTime: "",
-    arrivalTime: "",
-  })
+  const [voyageInformation, setVoyageInformation] = useState(initialState)
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = event.target.id
@@ -33,6 +35,7 @@ export const VoyageControlForm = () => {
 
   const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setVoyageInformation(initialState)
     console.log(voyageInformation)
   }
   return (
