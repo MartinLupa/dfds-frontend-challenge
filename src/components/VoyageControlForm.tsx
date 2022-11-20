@@ -1,8 +1,10 @@
 import styled from "@emotion/styled"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
+import { useFrame } from "use-frame"
+import { calculateDepartureTimestamp } from "../helpers/calculateDepartureTimestamp"
 import { calculateTimeDiference } from "../helpers/calculateTimeDiference"
-import { animate } from "../redux/animationReducer"
+import { animate, setAnimationDuration } from "../redux/animationReducer"
 import { update } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
@@ -30,7 +32,22 @@ const initialState = {
 
 export const VoyageControlForm = () => {
   const [voyageInformation, setVoyageInformation] = useState(initialState)
+  const [currentTimestamp, setCurrentTimestamp] = useState(0)
+  const [departureTimestamp, setDepartureTimestamp] = useState(0)
+  const [now, setNow] = useState(0)
   const dispatch = useDispatch()
+
+  useFrame(({ timestamp }) => {
+    setCurrentTimestamp(timestamp)
+    if (
+      departureTimestamp !== 0 &&
+      departureTimestamp - (now + currentTimestamp) <= 0
+    ) {
+      console.log("move now asshole")
+
+      dispatch(animate())
+    }
+  })
 
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = event.target.id
@@ -40,13 +57,22 @@ export const VoyageControlForm = () => {
 
   const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+
+    setDepartureTimestamp(
+      calculateDepartureTimestamp(voyageInformation.departureTime)
+    )
     const animationDuration = calculateTimeDiference(
       voyageInformation.departureTime,
       voyageInformation.arrivalTime
     )
+    dispatch(setAnimationDuration(animationDuration))
     dispatch(update(voyageInformation))
-    dispatch(animate(animationDuration))
+    setVoyageInformation(initialState)
   }
+
+  useEffect(() => {
+    setNow(Date.now())
+  }, [])
 
   return (
     <StyledControlForm onSubmit={handleFormSubmision}>
@@ -56,12 +82,14 @@ export const VoyageControlForm = () => {
           label={"Departure port"}
           name={"departurePort"}
           type={"text"}
+          value={voyageInformation.departurePort}
         />
         <InputField
           onChange={handleInput}
           label={"Arrival port"}
           name={"arrivalPort"}
           type={"text"}
+          value={voyageInformation.arrivalPort}
         />
       </StyledFormGroup>
       <StyledFormGroup>
@@ -70,12 +98,14 @@ export const VoyageControlForm = () => {
           label={"Departure time"}
           name={"departureTime"}
           type={"time"}
+          value={voyageInformation.departureTime}
         />
         <InputField
           onChange={handleInput}
           label={"Arrival time"}
           name={"arrivalTime"}
           type={"time"}
+          value={voyageInformation.arrivalTime}
         />
       </StyledFormGroup>
       <Button />
