@@ -1,3 +1,4 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { DottedScale } from "./DottedScale"
 import { PointerContainer } from "./PointerContainer"
@@ -8,7 +9,7 @@ const StyledVoyageProgress = styled.div({
   width: "500px",
 })
 
-export const VoyageProgress = () => {
+export const VoyageProgress = (): EmotionJSX.Element => {
   return (
     <StyledVoyageProgress>
       <PointerContainer />

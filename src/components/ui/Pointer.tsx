@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { mq } from "../../media-queres"
 import { theme } from "../../themes"
 
-//#region component styles
+//#region styles
 const movePointerMobile = keyframes`
     0% {
       transform: translateX(0px)
@@ -58,12 +58,24 @@ const StyledCenterCircle = styled.div({
 })
 //#endregion
 
+//#region types
+type StyledPointerWrapperProps = {
+  isAnimated: boolean
+  animationDuration: number
+}
+
+type AnimationState = {
+  animation: {
+    animate: boolean
+    duration: number
+  }
+}
+//#endregion
+
 export const Pointer = () => {
   const { animate, duration } = useSelector(
     (state: AnimationState) => state.animation
   )
-
-  console.log(animate, duration)
 
   return (
     <StyledPointerWrapper isAnimated={animate} animationDuration={duration}>

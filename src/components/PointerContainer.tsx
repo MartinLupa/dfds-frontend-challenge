@@ -1,7 +1,8 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { Pointer } from "./ui/Pointer"
 
-//#region component styles
+//#region styles
 const StylePointerContainer = styled.div({
   height: "65px",
   padding: "0 12px",
@@ -11,7 +12,7 @@ const StylePointerContainer = styled.div({
 })
 //#endregion
 
-export const PointerContainer = () => {
+export const PointerContainer = (): EmotionJSX.Element => {
   return (
     <StylePointerContainer>
       <Pointer />

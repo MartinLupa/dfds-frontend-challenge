@@ -1,11 +1,12 @@
 import { Global } from "@emotion/react"
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import DFDSLogo from "./assets/DFDS_Logo.png"
 import { mq } from "./media-queres"
 import { Main } from "./pages/Main"
 import { theme } from "./themes"
 
-//#region component styles
+//#region styles
 const StyledApp = styled.div({
   fontSize: theme.fontSize.md,
   height: "100vh",
@@ -32,7 +33,7 @@ const StyledLogo = styled.img({
 })
 //#endregion
 
-function App() {
+function App(): EmotionJSX.Element {
   return (
     <StyledApp>
       <Global

@@ -1,6 +1,7 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 
-//#region component styles
+//#region styles
 const StyledInput = styled.div({
   display: "flex",
   flexDirection: "column",
@@ -16,13 +17,23 @@ const StyledInput = styled.div({
 })
 //#endregion
 
+//#region types
+type TextInputProps = {
+  label: string
+  name: string
+  type: string
+  value: string
+  onChange: React.ChangeEventHandler<HTMLInputElement>
+}
+//#endregion
+
 export const InputField = ({
   label,
   name,
   value,
   type,
   onChange,
-}: TextInputProps) => {
+}: TextInputProps): EmotionJSX.Element => {
   return (
     <StyledInput>
       <label htmlFor={name}>{label}</label>

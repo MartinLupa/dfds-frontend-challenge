@@ -1,3 +1,4 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { theme } from "../../themes"
 
@@ -8,6 +9,6 @@ const StyledSmallDot = styled.div({
   backgroundColor: theme.colors.lightBlue,
 })
 
-export const SmallDot = () => {
+export const SmallDot = (): EmotionJSX.Element => {
   return <StyledSmallDot></StyledSmallDot>
 }

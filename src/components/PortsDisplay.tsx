@@ -1,7 +1,8 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { useSelector } from "react-redux"
 
-//#region component styles
+//#region styles
 const StyledPortsDisplay = styled.div({
   display: "flex",
   justifyContent: "space-between",
@@ -10,15 +11,15 @@ const StyledPortsDisplay = styled.div({
 })
 //#endregion
 
-export const PortsDisplay = () => {
-  const { departurePort, arrivalPort } = useSelector(
+export const PortsDisplay = (): EmotionJSX.Element => {
+  const { portOfLoading, portOfDischarge } = useSelector(
     (state: VoyageState) => state.voyage
   )
 
   return (
     <StyledPortsDisplay>
-      <div>{departurePort}</div>
-      <div>{arrivalPort}</div>
+      <div>{portOfLoading}</div>
+      <div>{portOfDischarge}</div>
     </StyledPortsDisplay>
   )
 }

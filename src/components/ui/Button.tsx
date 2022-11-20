@@ -1,3 +1,4 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { theme } from "../../themes"
 
@@ -16,6 +17,6 @@ const StyledButton = styled.button({
   },
 })
 
-export const Button = () => {
+export const Button = (): EmotionJSX.Element => {
   return <StyledButton type="submit">Start Journey!</StyledButton>
 }

@@ -1,3 +1,4 @@
+import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
@@ -9,7 +10,7 @@ import { update } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
 
-//#region component styles
+//#region styles
 const StyledControlForm = styled.form({
   padding: "27px",
   marginTop: "40px",
@@ -23,16 +24,16 @@ const StyledFormGroup = styled.div({
   marginBottom: "10px",
   justifyContent: "space-between",
 })
+//#endregion
 
 const initialState = {
-  departurePort: "",
-  arrivalPort: "",
+  portOfLoading: "",
+  portOfDischarge: "",
   departureTime: "",
   arrivalTime: "",
 }
-//#endregion
 
-export const VoyageControlForm = () => {
+export const VoyageControlForm = (): EmotionJSX.Element => {
   const [voyageInformation, setVoyageInformation] = useState(initialState)
   const [currentTimestamp, setCurrentTimestamp] = useState(0)
   const [departureTimestamp, setDepartureTimestamp] = useState(0)
@@ -48,6 +49,7 @@ export const VoyageControlForm = () => {
     ) {
       dispatch(animate())
     }
+    console.log(departureTimestamp - (now + currentTimestamp))
   })
   //#endregion
 
@@ -85,17 +87,17 @@ export const VoyageControlForm = () => {
       <StyledFormGroup>
         <InputField
           onChange={handleInput}
-          label={"Departure port"}
-          name={"departurePort"}
+          label={"Port of loading"}
+          name={"portOfLoading"}
           type={"text"}
-          value={voyageInformation.departurePort}
+          value={voyageInformation.portOfLoading}
         />
         <InputField
           onChange={handleInput}
-          label={"Arrival port"}
-          name={"arrivalPort"}
+          label={"Port of discharge"}
+          name={"portOfDischarge"}
           type={"text"}
-          value={voyageInformation.arrivalPort}
+          value={voyageInformation.portOfDischarge}
         />
       </StyledFormGroup>
       <StyledFormGroup>

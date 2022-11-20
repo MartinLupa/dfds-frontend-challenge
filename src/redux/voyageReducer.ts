@@ -3,18 +3,18 @@ import { createSlice } from "@reduxjs/toolkit"
 export const voyageSlice = createSlice({
   name: "voyage",
   initialState: {
-    departurePort: "",
-    arrivalPort: "",
+    portOfLoading: "",
+    portOfDischarge: "",
     departureTime: "",
     arrivalTime: "",
   },
 
   reducers: {
     update: (state, action) => {
-      state.departurePort = action.payload.departurePort
-      state.arrivalPort = action.payload.arrivalPort
+      state.portOfLoading = action.payload.portOfLoading
+      state.portOfDischarge = action.payload.portOfDischarge
       state.departureTime = action.payload.departureTime
-      state.arrivalTime = action.payload.departureTime
+      state.arrivalTime = action.payload.arrivalTime
     },
   },
 })
