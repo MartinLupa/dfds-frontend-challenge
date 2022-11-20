@@ -5,6 +5,7 @@ import { mq } from "./media-queres"
 import { Main } from "./pages/Main"
 import { theme } from "./themes"
 
+//#region component styles
 const StyledApp = styled.div({
   fontSize: theme.fontSize.md,
   height: "100vh",
@@ -29,6 +30,7 @@ const StyledLogo = styled.img({
   paddingLeft: "5px",
   marginRight: "20px",
 })
+//#endregion
 
 function App() {
   return (
@@ -36,7 +38,7 @@ function App() {
       <Global
         styles={{
           body: {
-            fontFamily: `${theme.fonts.main} !important`,
+            fontFamily: `${theme.fonts.main}`,
             margin: 0,
             padding: 0,
           },

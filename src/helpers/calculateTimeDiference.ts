@@ -1,4 +1,7 @@
-export const calculateTimeDiference = (departureTime, arrivalTime) => {
+export const calculateTimeDiference = (
+  departureTime: string,
+  arrivalTime: string
+) => {
   const departureTimeArr = departureTime.split(":").map(Number)
   const arrivalTimeArr = arrivalTime.split(":").map(Number)
   let hoursDifference = 0

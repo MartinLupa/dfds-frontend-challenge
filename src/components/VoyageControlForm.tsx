@@ -9,6 +9,7 @@ import { update } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
 
+//#region component styles
 const StyledControlForm = styled.form({
   padding: "27px",
   marginTop: "40px",
@@ -29,6 +30,7 @@ const initialState = {
   departureTime: "",
   arrivalTime: "",
 }
+//#endregion
 
 export const VoyageControlForm = () => {
   const [voyageInformation, setVoyageInformation] = useState(initialState)
@@ -37,6 +39,7 @@ export const VoyageControlForm = () => {
   const [now, setNow] = useState(0)
   const dispatch = useDispatch()
 
+  //#region timestamp and animation handling
   useFrame(({ timestamp }) => {
     setCurrentTimestamp(timestamp)
     if (
@@ -46,13 +49,17 @@ export const VoyageControlForm = () => {
       dispatch(animate())
     }
   })
+  //#endregion
 
+  //#region onChange input handling
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputName = event.target.id
     const newValue = event.target.value
     setVoyageInformation({ ...voyageInformation, ...{ [inputName]: newValue } })
   }
+  //#endregion
 
+  //#region form submission
   const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
@@ -67,6 +74,7 @@ export const VoyageControlForm = () => {
     dispatch(update(voyageInformation))
     setVoyageInformation(initialState)
   }
+  //#endregion
 
   useEffect(() => {
     setNow(Date.now())

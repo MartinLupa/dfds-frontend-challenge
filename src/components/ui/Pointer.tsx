@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { mq } from "../../media-queres"
 import { theme } from "../../themes"
 
+//#region component styles
 const movePointerMobile = keyframes`
     0% {
       transform: translateX(0px)
@@ -55,6 +56,7 @@ const StyledCenterCircle = styled.div({
   backgroundColor: "white",
   zIndex: 3,
 })
+//#endregion
 
 export const Pointer = () => {
   const { animate, duration } = useSelector(

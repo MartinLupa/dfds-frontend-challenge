@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 
+//#region component styles
 const StyledInput = styled.div({
   display: "flex",
   flexDirection: "column",
@@ -13,6 +14,7 @@ const StyledInput = styled.div({
     width: "auto",
   },
 })
+//#endregion
 
 export const InputField = ({
   label,
