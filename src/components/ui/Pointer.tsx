@@ -18,7 +18,7 @@ const movePointerTablet = keyframes`
   transform: translateX(0px)
 }
 100% {
-  transform: translateX(425px)
+  transform: translateX(426px)
 }
 `
 
@@ -26,12 +26,6 @@ const StyledPointerWrapper = styled.div<StyledPointerWrapperProps>(
   {
     width: "50px",
     height: "55px",
-
-    //animation: `${movePointerMobile} 3s linear forwards`,
-
-    [mq("small")]: {
-      //animation: `${movePointerTablet} 3s linear forwards`,
-    },
   },
 
   (props) =>

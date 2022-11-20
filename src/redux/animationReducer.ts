@@ -8,13 +8,15 @@ export const animationSlice = createSlice({
   },
 
   reducers: {
-    animate: (state, action) => {
-      state.animate = true
+    setAnimationDuration: (state, action) => {
       state.duration = action.payload
+    },
+    animate: (state) => {
+      state.animate = true
     },
   },
 })
 
-export const { animate } = animationSlice.actions
+export const { setAnimationDuration, animate } = animationSlice.actions
 
 export default animationSlice.reducer
