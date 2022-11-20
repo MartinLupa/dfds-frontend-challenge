@@ -1,10 +1,11 @@
 import { keyframes } from "@emotion/react"
 import styled from "@emotion/styled"
+import { useSelector } from "react-redux"
 import { mq } from "../../media-queres"
 import { theme } from "../../themes"
 
 const movePointerMobile = keyframes`
-    50% {
+    0% {
       transform: translateX(0px)
     }
     100% {
@@ -13,7 +14,7 @@ const movePointerMobile = keyframes`
   `
 
 const movePointerTablet = keyframes`
-50% {
+0% {
   transform: translateX(0px)
 }
 100% {
@@ -21,15 +22,26 @@ const movePointerTablet = keyframes`
 }
 `
 
-const StyledPointerWrapper = styled.div({
-  width: "50px",
-  height: "55px",
-  animation: `${movePointerMobile} 3s linear forwards`,
+const StyledPointerWrapper = styled.div<StyledPointerWrapperProps>(
+  {
+    width: "50px",
+    height: "55px",
 
-  [mq("small")]: {
-    animation: `${movePointerTablet} 3s linear forwards`,
+    //animation: `${movePointerMobile} 3s linear forwards`,
+
+    [mq("small")]: {
+      //animation: `${movePointerTablet} 3s linear forwards`,
+    },
   },
-})
+
+  (props) =>
+    props.isAnimated && {
+      animation: `${movePointerMobile} ${props.animationDuration}s linear forwards`,
+      [mq("small")]: {
+        animation: `${movePointerTablet} ${props.animationDuration}s linear forwards`,
+      },
+    }
+)
 
 const StyledPointer = styled.div({
   display: "flex",
@@ -51,8 +63,14 @@ const StyledCenterCircle = styled.div({
 })
 
 export const Pointer = () => {
+  const { animate, duration } = useSelector(
+    (state: AnimationState) => state.animation
+  )
+
+  console.log(animate, duration)
+
   return (
-    <StyledPointerWrapper>
+    <StyledPointerWrapper isAnimated={animate} animationDuration={duration}>
       <StyledPointer>
         <StyledCenterCircle>
           {/* <StyledWaterLine></StyledWaterLine> */}

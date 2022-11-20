@@ -8,11 +8,23 @@ type TextInputProps = {
   onChange: React.ChangeEventHandler<HTMLInputElement>
 }
 
+type StyledPointerWrapperProps = {
+  isAnimated: boolean
+  animationDuration: number
+}
+
 type VoyageState = {
   voyage: {
     departurePort: string
     arrivalPort: string
     departureTime: string
     arrivalTime: string
+  }
+}
+
+type AnimationState = {
+  animation: {
+    animate: boolean
+    duration: number
   }
 }

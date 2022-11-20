@@ -1,6 +1,8 @@
 import styled from "@emotion/styled"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
+import { calculateTimeDiference } from "../helpers/calculateTimeDiference"
+import { animate } from "../redux/animationReducer"
 import { update } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
@@ -38,9 +40,12 @@ export const VoyageControlForm = () => {
 
   const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    const animationDuration = calculateTimeDiference(
+      voyageInformation.departureTime,
+      voyageInformation.arrivalTime
+    )
     dispatch(update(voyageInformation))
-    //setVoyageInformation(initialState)
-    //console.log(voyageInformation)
+    dispatch(animate(animationDuration))
   }
 
   return (
