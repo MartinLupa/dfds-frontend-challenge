@@ -11,6 +11,17 @@ const StyledPortsDisplay = styled.div({
 })
 //#endregion
 
+//#region types
+type VoyageState = {
+  voyage: {
+    portOfLoading: string
+    portOfDischarge: string
+    departureTime: string
+    arrivalTime: string
+  }
+}
+//#endregion
+
 export const PortsDisplay = (): EmotionJSX.Element => {
   const { portOfLoading, portOfDischarge } = useSelector(
     (state: VoyageState) => state.voyage
@@ -18,8 +29,8 @@ export const PortsDisplay = (): EmotionJSX.Element => {
 
   return (
     <StyledPortsDisplay>
-      <div>{portOfLoading}</div>
-      <div>{portOfDischarge}</div>
+      {portOfLoading}
+      {portOfDischarge}
     </StyledPortsDisplay>
   )
 }

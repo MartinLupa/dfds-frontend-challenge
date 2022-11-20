@@ -17,18 +17,18 @@ export const DottedScale = (): EmotionJSX.Element => {
   return (
     <StyledDottedScale>
       <BigDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
-      <SmallDot />
+      <SmallDot isActive={true} />
+      <SmallDot isActive={true} />
+      <SmallDot isActive={true} />
+      <SmallDot isActive={true} />
+      <SmallDot isActive={true} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
+      <SmallDot isActive={false} />
       <BigDot />
     </StyledDottedScale>
   )
