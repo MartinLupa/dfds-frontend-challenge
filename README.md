@@ -28,6 +28,7 @@ To kickstart the local project:
 - Styles with Emotion.sh styled componen.ts.
 - State managemenet using Redux Toolkit.
 - A styling theme was created at root level. It allows for centralized styling updates.
+- Mobile first.
 
 ---
 
