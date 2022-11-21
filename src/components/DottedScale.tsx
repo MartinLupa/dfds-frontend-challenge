@@ -1,5 +1,6 @@
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
+import { useSelector } from "react-redux"
 import { BigDot } from "./ui/BigDot"
 import { SmallDot } from "./ui/SmallDot"
 
@@ -13,22 +14,17 @@ const StyledDottedScale = styled.div({
 })
 //#endregion
 
+type DotState = { dotState: { dotStateArray: boolean[] } }
+
 export const DottedScale = (): EmotionJSX.Element => {
+  const { dotStateArray } = useSelector((state: DotState) => state.dotState)
+
   return (
     <StyledDottedScale>
       <BigDot />
-      <SmallDot isActive={true} />
-      <SmallDot isActive={true} />
-      <SmallDot isActive={true} />
-      <SmallDot isActive={true} />
-      <SmallDot isActive={true} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
-      <SmallDot isActive={false} />
+      {dotStateArray.map((dotState) => (
+        <SmallDot isActive={dotState} />
+      ))}
       <BigDot />
     </StyledDottedScale>
   )

@@ -49,7 +49,6 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
     ) {
       dispatch(animate())
     }
-    console.log(departureTimestamp - (now + currentTimestamp))
   })
   //#endregion
 

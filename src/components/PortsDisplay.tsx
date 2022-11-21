@@ -29,8 +29,8 @@ export const PortsDisplay = (): EmotionJSX.Element => {
 
   return (
     <StyledPortsDisplay>
-      {portOfLoading}
-      {portOfDischarge}
+      <div>{portOfLoading}</div>
+      <div>{portOfDischarge}</div>
     </StyledPortsDisplay>
   )
 }

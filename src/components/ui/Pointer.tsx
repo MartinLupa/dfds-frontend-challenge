@@ -63,13 +63,6 @@ type StyledPointerWrapperProps = {
   isAnimated: boolean
   animationDuration: number
 }
-
-type AnimationState = {
-  animation: {
-    animate: boolean
-    duration: number
-  }
-}
 //#endregion
 
 export const Pointer = () => {
