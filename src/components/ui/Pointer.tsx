@@ -73,9 +73,7 @@ export const Pointer = () => {
   return (
     <StyledPointerWrapper isAnimated={animate} animationDuration={duration}>
       <StyledPointer>
-        <StyledCenterCircle>
-          {/* <StyledWaterLine></StyledWaterLine> */}
-        </StyledCenterCircle>
+        <StyledCenterCircle></StyledCenterCircle>
       </StyledPointer>
     </StyledPointerWrapper>
   )

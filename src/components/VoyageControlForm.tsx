@@ -30,6 +30,7 @@ const StyledFormGroup = styled.div({
 })
 //#endregion
 
+//#region initialStates
 const voyageInitialState = {
   portOfLoading: "",
   portOfDischarge: "",
@@ -38,6 +39,7 @@ const voyageInitialState = {
 }
 
 const timestampInitialState = Date.now()
+//#endregion
 
 export const VoyageControlForm = (): EmotionJSX.Element => {
   const [voyageInformation, setVoyageInformation] = useState(voyageInitialState)
@@ -47,7 +49,6 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
   const { departureTimestamp } = useSelector(
     (state: VoyageState) => state.voyage
   )
-  // const [now, setNow] = useState(0)
   const dispatch = useDispatch()
 
   //#region timestamp and animation handling
