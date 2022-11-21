@@ -22,6 +22,28 @@ To kickstart the local project:
 
 ---
 
+## Features
+
+- Typescript
+- Styles with Emotion.sh styled componen.ts.
+- State managemenet using Redux Toolkit.
+- A styling theme was created at root level. It allows for centralized styling updates.
+
+---
+
+## Usage example
+
+Local time: 16:00
+
+- Input port of loading and port of discharge.
+- Input 16:01 as departure time and 16:02 as arrival time.
+
+The pointer should start moving when the clock hits 16:01 and should arrive at the port of discharge at 16:02. All dots should become active at the moment the pointer passes above them, making a change in their color.
+
+The arrival time allows for +1 day difference. Example: if the departure time is 23:00 and arrival time is set as 05:00, the app will calculate a 6 hours journey.
+
+---
+
 ## Where to get help and report bugs and issues
 
 [Issues](https://github.com/MartinLupa/dfds-frontend-challenge/issues)
