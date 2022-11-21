@@ -47,7 +47,7 @@ function App(): EmotionJSX.Element {
       />
       <StyledNav>
         <StyledLogo src={DFDSLogo} alt="DFDS company logo" />
-        <h1>Welcome to the DFDS Frontend Challenge!</h1>
+        <h1>Welcome to the DFDS Frontend Challenge! - Author: Martín Lupa</h1>
       </StyledNav>
       <Main />
     </StyledApp>
