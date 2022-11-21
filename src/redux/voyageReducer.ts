@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { calculateDepartureTimestamp } from "../helpers/calculateDepartureTimestamp"
 
 export const voyageSlice = createSlice({
   name: "voyage",
@@ -7,18 +8,22 @@ export const voyageSlice = createSlice({
     portOfDischarge: "",
     departureTime: "",
     arrivalTime: "",
+    departureTimestamp: 0,
   },
 
   reducers: {
-    update: (state, action) => {
+    setVoyage: (state, action) => {
       state.portOfLoading = action.payload.portOfLoading
       state.portOfDischarge = action.payload.portOfDischarge
       state.departureTime = action.payload.departureTime
       state.arrivalTime = action.payload.arrivalTime
+      state.departureTimestamp = calculateDepartureTimestamp(
+        state.departureTime
+      )
     },
   },
 })
 
-export const { update } = voyageSlice.actions
+export const { setVoyage } = voyageSlice.actions
 
 export default voyageSlice.reducer

@@ -14,16 +14,16 @@ const StyledDottedScale = styled.div({
 })
 //#endregion
 
-type DotState = { dotState: { dotStateArray: boolean[] } }
-
 export const DottedScale = (): EmotionJSX.Element => {
-  const { dotStateArray } = useSelector((state: DotState) => state.dotState)
+  const { dotStateArray } = useSelector(
+    (state: AnimationState) => state.animation
+  )
 
   return (
     <StyledDottedScale>
       <BigDot />
       {dotStateArray.map((dotState) => (
-        <SmallDot isActive={dotState} />
+        <SmallDot key={dotState.id} isActive={dotState.isActive} />
       ))}
       <BigDot />
     </StyledDottedScale>

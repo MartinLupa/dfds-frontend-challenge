@@ -1,12 +1,12 @@
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
 import { useEffect, useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useFrame } from "use-frame"
 import { calculateDepartureTimestamp } from "../helpers/calculateDepartureTimestamp"
 import { calculateTimeDiference } from "../helpers/calculateTimeDiference"
-import { animate, setAnimationDuration } from "../redux/animationReducer"
-import { update } from "../redux/voyageReducer"
+import { animate, setAnimation } from "../redux/animationReducer"
+import { setVoyage } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
 
@@ -36,7 +36,10 @@ const initialState = {
 export const VoyageControlForm = (): EmotionJSX.Element => {
   const [voyageInformation, setVoyageInformation] = useState(initialState)
   const [currentTimestamp, setCurrentTimestamp] = useState(0)
-  const [departureTimestamp, setDepartureTimestamp] = useState(0)
+  //const [departureTimestamp, setDepartureTimestamp] = useState(0)
+  const { departureTimestamp } = useSelector(
+    (state: VoyageState) => state.voyage
+  )
   const [now, setNow] = useState(0)
   const dispatch = useDispatch()
 
@@ -61,18 +64,22 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
   //#endregion
 
   //#region form submission
-  const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleFormSubmision = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault()
 
-    setDepartureTimestamp(
-      calculateDepartureTimestamp(voyageInformation.departureTime)
+    const departureTimestamp = await calculateDepartureTimestamp(
+      voyageInformation.departureTime
     )
+
     const animationDuration = calculateTimeDiference(
       voyageInformation.departureTime,
       voyageInformation.arrivalTime
     )
-    dispatch(setAnimationDuration(animationDuration))
-    dispatch(update(voyageInformation))
+
+    await dispatch(setVoyage(voyageInformation))
+    dispatch(setAnimation({ animationDuration, departureTimestamp }))
     setVoyageInformation(initialState)
   }
   //#endregion
