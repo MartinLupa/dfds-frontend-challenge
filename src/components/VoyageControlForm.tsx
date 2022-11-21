@@ -1,11 +1,15 @@
 import { EmotionJSX } from "@emotion/react/types/jsx-namespace"
 import styled from "@emotion/styled"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useFrame } from "use-frame"
 import { calculateDepartureTimestamp } from "../helpers/calculateDepartureTimestamp"
 import { calculateTimeDiference } from "../helpers/calculateTimeDiference"
-import { animate, setAnimation } from "../redux/animationReducer"
+import {
+  animateDot,
+  animatePointer,
+  setAnimation,
+} from "../redux/animationReducer"
 import { setVoyage } from "../redux/voyageReducer"
 import { Button } from "./ui/Button"
 import { InputField } from "./ui/InputField"
@@ -26,31 +30,35 @@ const StyledFormGroup = styled.div({
 })
 //#endregion
 
-const initialState = {
+const voyageInitialState = {
   portOfLoading: "",
   portOfDischarge: "",
   departureTime: "",
   arrivalTime: "",
 }
 
+const timestampInitialState = Date.now()
+
 export const VoyageControlForm = (): EmotionJSX.Element => {
-  const [voyageInformation, setVoyageInformation] = useState(initialState)
-  const [currentTimestamp, setCurrentTimestamp] = useState(0)
-  //const [departureTimestamp, setDepartureTimestamp] = useState(0)
+  const [voyageInformation, setVoyageInformation] = useState(voyageInitialState)
+  const [currentTimestamp, setCurrentTimestamp] = useState(
+    timestampInitialState
+  )
   const { departureTimestamp } = useSelector(
     (state: VoyageState) => state.voyage
   )
-  const [now, setNow] = useState(0)
+  // const [now, setNow] = useState(0)
   const dispatch = useDispatch()
 
   //#region timestamp and animation handling
   useFrame(({ timestamp }) => {
-    setCurrentTimestamp(timestamp)
+    setCurrentTimestamp(timestampInitialState + timestamp)
     if (
       departureTimestamp !== 0 &&
-      departureTimestamp - (now + currentTimestamp) <= 0
+      departureTimestamp - currentTimestamp <= 0
     ) {
-      dispatch(animate())
+      dispatch(animatePointer())
+      dispatch(animateDot(currentTimestamp))
     }
   })
   //#endregion
@@ -78,13 +86,9 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
 
     dispatch(setVoyage(voyageInformation))
     dispatch(setAnimation({ animationDuration, departureTimestamp }))
-    setVoyageInformation(initialState)
+    setVoyageInformation(voyageInitialState)
   }
   //#endregion
-
-  useEffect(() => {
-    setNow(Date.now())
-  }, [])
 
   return (
     <StyledControlForm onSubmit={handleFormSubmision}>

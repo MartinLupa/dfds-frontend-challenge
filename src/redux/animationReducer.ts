@@ -25,20 +25,27 @@ export const animationSlice = createSlice({
     setAnimation: (state, action) => {
       state.duration = action.payload.animationDuration
 
-      const animationInterval = (action.payload.animationDuration * 1000) / 12
+      const animationInterval = (action.payload.animationDuration * 1000) / 13
       for (let i = 0; i < state.dotStateArray.length; i++) {
         const animationDifference = animationInterval * (i + 1)
         state.dotStateArray[i].animateOn =
           action.payload.departureTimestamp + animationDifference
       }
-      //set animateOn timestamp (departureTimestamp + interval)
     },
-    animate: (state) => {
+    animatePointer: (state) => {
       state.animate = true
+    },
+    animateDot: (state, action) => {
+      state.dotStateArray.forEach((dot) => {
+        if (action.payload >= dot.animateOn) {
+          dot.isActive = true
+        }
+      })
     },
   },
 })
 
-export const { setAnimation, animate } = animationSlice.actions
+export const { setAnimation, animatePointer, animateDot } =
+  animationSlice.actions
 
 export default animationSlice.reducer
