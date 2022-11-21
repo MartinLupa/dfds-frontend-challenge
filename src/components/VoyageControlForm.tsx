@@ -64,12 +64,10 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
   //#endregion
 
   //#region form submission
-  const handleFormSubmision = async (
-    event: React.FormEvent<HTMLFormElement>
-  ) => {
+  const handleFormSubmision = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
 
-    const departureTimestamp = await calculateDepartureTimestamp(
+    const departureTimestamp = calculateDepartureTimestamp(
       voyageInformation.departureTime
     )
 
@@ -78,7 +76,7 @@ export const VoyageControlForm = (): EmotionJSX.Element => {
       voyageInformation.arrivalTime
     )
 
-    await dispatch(setVoyage(voyageInformation))
+    dispatch(setVoyage(voyageInformation))
     dispatch(setAnimation({ animationDuration, departureTimestamp }))
     setVoyageInformation(initialState)
   }

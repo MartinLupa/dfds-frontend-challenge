@@ -25,13 +25,11 @@ export const animationSlice = createSlice({
     setAnimation: (state, action) => {
       state.duration = action.payload.animationDuration
 
-      const animationInterval = action.payload.animationDuration / 12
+      const animationInterval = (action.payload.animationDuration * 1000) / 12
       for (let i = 0; i < state.dotStateArray.length; i++) {
-        console.log(i)
         const animationDifference = animationInterval * (i + 1)
         state.dotStateArray[i].animateOn =
           action.payload.departureTimestamp + animationDifference
-        console.log(state.dotStateArray[i].animateOn)
       }
       //set animateOn timestamp (departureTimestamp + interval)
     },
