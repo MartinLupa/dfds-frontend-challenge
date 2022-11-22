@@ -1,5 +1,7 @@
 # DFDS Frontend Challenge
 
+## Deployment: https://dfds-frontend-challenge.vercel.app/
+
 For thi code challenge, you will be building a "Voyage progress" React component, which simply put shows roughly how far the ferry is along it´s path. Here is an example of how the component should look:
 
 ![alt component overview](/src//assets//component_screenshot.PNG "DFDS Frontend Challenge voyage progress component overview")
