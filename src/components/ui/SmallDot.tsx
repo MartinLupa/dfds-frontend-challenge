@@ -8,7 +8,7 @@ const StyledSmallDot = styled.div<SmallDotProps>((props) => ({
   width: "10px",
   borderRadius: "50%",
   backgroundColor: props.isActive
-    ? theme.colors.darkBlue
+    ? theme.colors.midBlue
     : theme.colors.lightBlue,
 }))
 //#endregion
